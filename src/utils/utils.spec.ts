@@ -1,19 +1,11 @@
-/*import { format } from './utils';
+import { cn } from './utils';
 
-describe('format', () => {
-  it('returns empty string for no names defined', () => {
-    expect(format(undefined, undefined, undefined)).toEqual('');
+describe('cn', () => {
+  it('should return a string', () => {
+    expect(cn('')).toEqual(expect.any(String));
   });
 
-  it('formats just first names', () => {
-    expect(format('Joseph', undefined, undefined)).toEqual('Joseph');
+  it('should return a string with the same value as the input', () => {
+    expect(cn('test')).toEqual('test');
   });
-
-  it('formats first and last names', () => {
-    expect(format('Joseph', undefined, 'Publique')).toEqual('Joseph Publique');
-  });
-
-  it('formats first, middle and last names', () => {
-    expect(format('Joseph', 'Quincy', 'Publique')).toEqual('Joseph Quincy Publique');
-  });
-});*/
+});

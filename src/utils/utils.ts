@@ -28,8 +28,6 @@ export function getDark() {
     return twMerge(clsx(className))
   }
 }*/
-
-// cn2 that is cn but with getDark (that if true adds "dark" to all classes)
 export function cn(
   className: ClassValue,
   variants?: Record<string, Record<string, ClassValue>>,
