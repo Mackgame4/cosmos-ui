@@ -40,3 +40,9 @@ export function cn(
     return twMerge(clsx(className, getDark() ? "dark" : ""))
   }
 }
+
+// funtion "getComponents"
+import docs from "./docs.json";
+export function getComponents() {
+  return docs.components
+}

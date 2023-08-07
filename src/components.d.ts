@@ -26,6 +26,12 @@ export namespace Components {
         "size": string;
         "variant": string;
     }
+    interface CCard {
+        "cardDescription": string;
+        "cardFooter": string;
+        "cardSubtitle": string;
+        "cardTitle": string;
+    }
     interface CCheckbox {
         "checked": boolean;
         "description": string;
@@ -53,6 +59,8 @@ export namespace Components {
     interface CLabel {
         "htmlFor": string;
     }
+    interface CPlayground {
+    }
     interface CProvider {
     }
 }
@@ -74,6 +82,12 @@ declare global {
     var HTMLCButtonElement: {
         prototype: HTMLCButtonElement;
         new (): HTMLCButtonElement;
+    };
+    interface HTMLCCardElement extends Components.CCard, HTMLStencilElement {
+    }
+    var HTMLCCardElement: {
+        prototype: HTMLCCardElement;
+        new (): HTMLCCardElement;
     };
     interface HTMLCCheckboxElement extends Components.CCheckbox, HTMLStencilElement {
     }
@@ -99,6 +113,12 @@ declare global {
         prototype: HTMLCLabelElement;
         new (): HTMLCLabelElement;
     };
+    interface HTMLCPlaygroundElement extends Components.CPlayground, HTMLStencilElement {
+    }
+    var HTMLCPlaygroundElement: {
+        prototype: HTMLCPlaygroundElement;
+        new (): HTMLCPlaygroundElement;
+    };
     interface HTMLCProviderElement extends Components.CProvider, HTMLStencilElement {
     }
     var HTMLCProviderElement: {
@@ -109,10 +129,12 @@ declare global {
         "c-avatar": HTMLCAvatarElement;
         "c-badge": HTMLCBadgeElement;
         "c-button": HTMLCButtonElement;
+        "c-card": HTMLCCardElement;
         "c-checkbox": HTMLCCheckboxElement;
         "c-icon": HTMLCIconElement;
         "c-input": HTMLCInputElement;
         "c-label": HTMLCLabelElement;
+        "c-playground": HTMLCPlaygroundElement;
         "c-provider": HTMLCProviderElement;
     }
 }
@@ -136,6 +158,12 @@ declare namespace LocalJSX {
         "prependIcon"?: string;
         "size"?: string;
         "variant"?: string;
+    }
+    interface CCard {
+        "cardDescription"?: string;
+        "cardFooter"?: string;
+        "cardSubtitle"?: string;
+        "cardTitle"?: string;
     }
     interface CCheckbox {
         "checked"?: boolean;
@@ -164,16 +192,20 @@ declare namespace LocalJSX {
     interface CLabel {
         "htmlFor"?: string;
     }
+    interface CPlayground {
+    }
     interface CProvider {
     }
     interface IntrinsicElements {
         "c-avatar": CAvatar;
         "c-badge": CBadge;
         "c-button": CButton;
+        "c-card": CCard;
         "c-checkbox": CCheckbox;
         "c-icon": CIcon;
         "c-input": CInput;
         "c-label": CLabel;
+        "c-playground": CPlayground;
         "c-provider": CProvider;
     }
 }
@@ -184,10 +216,12 @@ declare module "@stencil/core" {
             "c-avatar": LocalJSX.CAvatar & JSXBase.HTMLAttributes<HTMLCAvatarElement>;
             "c-badge": LocalJSX.CBadge & JSXBase.HTMLAttributes<HTMLCBadgeElement>;
             "c-button": LocalJSX.CButton & JSXBase.HTMLAttributes<HTMLCButtonElement>;
+            "c-card": LocalJSX.CCard & JSXBase.HTMLAttributes<HTMLCCardElement>;
             "c-checkbox": LocalJSX.CCheckbox & JSXBase.HTMLAttributes<HTMLCCheckboxElement>;
             "c-icon": LocalJSX.CIcon & JSXBase.HTMLAttributes<HTMLCIconElement>;
             "c-input": LocalJSX.CInput & JSXBase.HTMLAttributes<HTMLCInputElement>;
             "c-label": LocalJSX.CLabel & JSXBase.HTMLAttributes<HTMLCLabelElement>;
+            "c-playground": LocalJSX.CPlayground & JSXBase.HTMLAttributes<HTMLCPlaygroundElement>;
             "c-provider": LocalJSX.CProvider & JSXBase.HTMLAttributes<HTMLCProviderElement>;
         }
     }

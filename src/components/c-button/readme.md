@@ -7,11 +7,14 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type      | Default     |
-| ---------- | ---------- | ----------- | --------- | ----------- |
-| `disabled` | `disabled` |             | `boolean` | `false`     |
-| `size`     | `size`     |             | `string`  | `'default'` |
-| `variant`  | `variant`  |             | `string`  | `'default'` |
+| Property      | Attribute      | Description | Type      | Default     |
+| ------------- | -------------- | ----------- | --------- | ----------- |
+| `appendIcon`  | `append-icon`  |             | `string`  | `''`        |
+| `classIcon`   | `class-icon`   |             | `string`  | `'h-4 w-4'` |
+| `disabled`    | `disabled`     |             | `boolean` | `false`     |
+| `prependIcon` | `prepend-icon` |             | `string`  | `''`        |
+| `size`        | `size`         |             | `string`  | `'md'`      |
+| `variant`     | `variant`      |             | `string`  | `'default'` |
 
 
 ## Dependencies
