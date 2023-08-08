@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-
+import { cn } from '../../utils/utils';
 
 @Component({
   tag: 'c-card',
@@ -12,9 +12,15 @@ export class CCard {
   @Prop() cardDescription: string;
   @Prop() cardFooter: string;
 
+  get cardVariants() {
+    return cn(
+      "rounded-xl border bg-card text-card-foreground shadow",
+    )
+  }
+
   render() {
     return (
-      <div id="card" class="rounded-xl border bg-card text-card-foreground shadow">
+      <div id="card" class={this.cardVariants}>
         <div id="header" class="flex flex-col space-y-1.5 p-6">
           <slot name="header">
             <div id="title" class="text-2xl font-semibold leading-none tracking-tight">{this.cardTitle}</div>

@@ -134,6 +134,14 @@ body {
     --tw-ring-inset: !important;
 }
 
+input,
+textarea,
+button,
+select,
+a {
+    -webkit-tap-highlight-color: transparent !important;
+}
+
 html {
     line-height: 1.5;
     -webkit-text-size-adjust: 100%;

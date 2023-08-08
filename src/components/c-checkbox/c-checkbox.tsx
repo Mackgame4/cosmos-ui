@@ -33,7 +33,7 @@ export class CCheckbox {
   render() {
     return (
       <div class="inline-flex items-center space-x-2">
-        <input type="checkbox" class="hidden" checked={this.checked} disabled={this.disabled} />
+        <input type="checkbox" class="peer hidden" checked={this.checked} disabled={this.disabled} />
         <div class={`${this.checkboxVariants} ${this.disabled ? 'cursor-not-allowed opacity-50' : ''}`}
           onClick={() => {this.updateState()}}
           data-state={this.state}

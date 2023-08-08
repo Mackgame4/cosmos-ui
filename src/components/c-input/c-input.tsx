@@ -1,4 +1,4 @@
-import { Component, Prop, h } from '@stencil/core';
+import { Component, Prop, Element, h } from '@stencil/core';
 import { cn } from '../../utils/utils';
 
 @Component({
@@ -8,15 +8,40 @@ import { cn } from '../../utils/utils';
 })
 export class CInput {
   @Prop() type: string = 'text';
-  @Prop() placeholder: string = 'Placeholder';
+  @Prop() placeholder: string = '';
   @Prop() disabled: boolean = false;
   @Prop() required: boolean = false;
   @Prop() readonly: boolean = false;
-  @Prop() value: string = '';
+  @Prop({
+    mutable: true,
+  }) value: string = '';
   @Prop() label: string = '';
   @Prop() min: string = '';
   @Prop() max: string = '';
   @Prop() step: string = '';
+
+  @Element() el: HTMLInputElement;
+
+  handleChange = (e: Event) => {
+    this.value = (e.target as HTMLInputElement).value;
+    this.el.dispatchEvent(new CustomEvent('change', {
+      detail: this.value,
+    }));
+  }
+
+  handleInput = (e: Event) => {
+    this.value = (e.target as HTMLInputElement).value;
+    /*this.el.dispatchEvent(new CustomEvent('input', {
+      detail: this.value,
+    }));*/
+  }
+
+  handleBlur = (e: Event) => {
+    this.value = (e.target as HTMLInputElement).value;
+    this.el.dispatchEvent(new CustomEvent('blur', {
+      detail: this.value,
+    }));
+  }
 
   get inputVariants() {
     return cn(
@@ -40,6 +65,10 @@ export class CInput {
           max={this.max}
           step={this.step}
           value={this.value}
+          onChange={this.handleChange}
+          onInput={this.handleInput}
+          onBlur={this.handleBlur}
+          onKeyUp={this.handleInput}
         />
       </div>
     );

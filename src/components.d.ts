@@ -59,9 +59,11 @@ export namespace Components {
     interface CLabel {
         "htmlFor": string;
     }
-    interface CPlayground {
-    }
     interface CProvider {
+    }
+    interface CSwitch {
+        "checked": boolean;
+        "disabled": boolean;
     }
 }
 declare global {
@@ -113,17 +115,17 @@ declare global {
         prototype: HTMLCLabelElement;
         new (): HTMLCLabelElement;
     };
-    interface HTMLCPlaygroundElement extends Components.CPlayground, HTMLStencilElement {
-    }
-    var HTMLCPlaygroundElement: {
-        prototype: HTMLCPlaygroundElement;
-        new (): HTMLCPlaygroundElement;
-    };
     interface HTMLCProviderElement extends Components.CProvider, HTMLStencilElement {
     }
     var HTMLCProviderElement: {
         prototype: HTMLCProviderElement;
         new (): HTMLCProviderElement;
+    };
+    interface HTMLCSwitchElement extends Components.CSwitch, HTMLStencilElement {
+    }
+    var HTMLCSwitchElement: {
+        prototype: HTMLCSwitchElement;
+        new (): HTMLCSwitchElement;
     };
     interface HTMLElementTagNameMap {
         "c-avatar": HTMLCAvatarElement;
@@ -134,8 +136,8 @@ declare global {
         "c-icon": HTMLCIconElement;
         "c-input": HTMLCInputElement;
         "c-label": HTMLCLabelElement;
-        "c-playground": HTMLCPlaygroundElement;
         "c-provider": HTMLCProviderElement;
+        "c-switch": HTMLCSwitchElement;
     }
 }
 declare namespace LocalJSX {
@@ -192,9 +194,11 @@ declare namespace LocalJSX {
     interface CLabel {
         "htmlFor"?: string;
     }
-    interface CPlayground {
-    }
     interface CProvider {
+    }
+    interface CSwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
     }
     interface IntrinsicElements {
         "c-avatar": CAvatar;
@@ -205,8 +209,8 @@ declare namespace LocalJSX {
         "c-icon": CIcon;
         "c-input": CInput;
         "c-label": CLabel;
-        "c-playground": CPlayground;
         "c-provider": CProvider;
+        "c-switch": CSwitch;
     }
 }
 export { LocalJSX as JSX };
@@ -221,8 +225,8 @@ declare module "@stencil/core" {
             "c-icon": LocalJSX.CIcon & JSXBase.HTMLAttributes<HTMLCIconElement>;
             "c-input": LocalJSX.CInput & JSXBase.HTMLAttributes<HTMLCInputElement>;
             "c-label": LocalJSX.CLabel & JSXBase.HTMLAttributes<HTMLCLabelElement>;
-            "c-playground": LocalJSX.CPlayground & JSXBase.HTMLAttributes<HTMLCPlaygroundElement>;
             "c-provider": LocalJSX.CProvider & JSXBase.HTMLAttributes<HTMLCProviderElement>;
+            "c-switch": LocalJSX.CSwitch & JSXBase.HTMLAttributes<HTMLCSwitchElement>;
         }
     }
 }
