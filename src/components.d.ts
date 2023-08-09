@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CAlert {
+        "alertDescription": string;
+        "alertIcon": string;
+        "alertTitle": string;
+        "variant": string;
+    }
     interface CAvatar {
         "alt": string;
         "size": string;
@@ -61,12 +67,25 @@ export namespace Components {
     }
     interface CProvider {
     }
+    interface CSlider {
+        "disabled": boolean;
+        "max": number;
+        "min": number;
+        "step": number;
+        "value": number;
+    }
     interface CSwitch {
         "checked": boolean;
         "disabled": boolean;
     }
 }
 declare global {
+    interface HTMLCAlertElement extends Components.CAlert, HTMLStencilElement {
+    }
+    var HTMLCAlertElement: {
+        prototype: HTMLCAlertElement;
+        new (): HTMLCAlertElement;
+    };
     interface HTMLCAvatarElement extends Components.CAvatar, HTMLStencilElement {
     }
     var HTMLCAvatarElement: {
@@ -121,6 +140,12 @@ declare global {
         prototype: HTMLCProviderElement;
         new (): HTMLCProviderElement;
     };
+    interface HTMLCSliderElement extends Components.CSlider, HTMLStencilElement {
+    }
+    var HTMLCSliderElement: {
+        prototype: HTMLCSliderElement;
+        new (): HTMLCSliderElement;
+    };
     interface HTMLCSwitchElement extends Components.CSwitch, HTMLStencilElement {
     }
     var HTMLCSwitchElement: {
@@ -128,6 +153,7 @@ declare global {
         new (): HTMLCSwitchElement;
     };
     interface HTMLElementTagNameMap {
+        "c-alert": HTMLCAlertElement;
         "c-avatar": HTMLCAvatarElement;
         "c-badge": HTMLCBadgeElement;
         "c-button": HTMLCButtonElement;
@@ -137,10 +163,17 @@ declare global {
         "c-input": HTMLCInputElement;
         "c-label": HTMLCLabelElement;
         "c-provider": HTMLCProviderElement;
+        "c-slider": HTMLCSliderElement;
         "c-switch": HTMLCSwitchElement;
     }
 }
 declare namespace LocalJSX {
+    interface CAlert {
+        "alertDescription"?: string;
+        "alertIcon"?: string;
+        "alertTitle"?: string;
+        "variant"?: string;
+    }
     interface CAvatar {
         "alt"?: string;
         "size"?: string;
@@ -196,11 +229,19 @@ declare namespace LocalJSX {
     }
     interface CProvider {
     }
+    interface CSlider {
+        "disabled"?: boolean;
+        "max"?: number;
+        "min"?: number;
+        "step"?: number;
+        "value"?: number;
+    }
     interface CSwitch {
         "checked"?: boolean;
         "disabled"?: boolean;
     }
     interface IntrinsicElements {
+        "c-alert": CAlert;
         "c-avatar": CAvatar;
         "c-badge": CBadge;
         "c-button": CButton;
@@ -210,6 +251,7 @@ declare namespace LocalJSX {
         "c-input": CInput;
         "c-label": CLabel;
         "c-provider": CProvider;
+        "c-slider": CSlider;
         "c-switch": CSwitch;
     }
 }
@@ -217,6 +259,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "c-alert": LocalJSX.CAlert & JSXBase.HTMLAttributes<HTMLCAlertElement>;
             "c-avatar": LocalJSX.CAvatar & JSXBase.HTMLAttributes<HTMLCAvatarElement>;
             "c-badge": LocalJSX.CBadge & JSXBase.HTMLAttributes<HTMLCBadgeElement>;
             "c-button": LocalJSX.CButton & JSXBase.HTMLAttributes<HTMLCButtonElement>;
@@ -226,6 +269,7 @@ declare module "@stencil/core" {
             "c-input": LocalJSX.CInput & JSXBase.HTMLAttributes<HTMLCInputElement>;
             "c-label": LocalJSX.CLabel & JSXBase.HTMLAttributes<HTMLCLabelElement>;
             "c-provider": LocalJSX.CProvider & JSXBase.HTMLAttributes<HTMLCProviderElement>;
+            "c-slider": LocalJSX.CSlider & JSXBase.HTMLAttributes<HTMLCSliderElement>;
             "c-switch": LocalJSX.CSwitch & JSXBase.HTMLAttributes<HTMLCSwitchElement>;
         }
     }
