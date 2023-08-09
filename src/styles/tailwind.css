@@ -134,6 +134,7 @@ body {
     --tw-ring-inset: !important;
 }
 
+*[data-state],
 input,
 textarea,
 button,
