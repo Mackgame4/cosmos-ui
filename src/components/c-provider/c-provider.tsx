@@ -1,5 +1,5 @@
-import { Component, Host, h } from '@stencil/core';
-import { debugMode } from '../../utils/utils';
+import { Component, Host, Prop, Element, Watch, h } from '@stencil/core';
+import { debugMode, toggleDark } from '../../utils/utils';
 
 @Component({
   tag: 'c-provider',
@@ -7,8 +7,28 @@ import { debugMode } from '../../utils/utils';
   shadow: false,
 })
 export class CProvider {
+  @Prop({ mutable: true, reflect: true }) dark: boolean;
+  @Prop({ mutable: true }) class: string;
+
+  @Element() el: HTMLElement;
+
   componentDidLoad() {
     if (debugMode) console.log('%c Cosmos UI is ready!', 'background: #222; color: #bada55');
+  }
+
+  componentWillLoad() {
+    if (this.dark) {
+      this.el.classList.toggle('dark');
+    }
+  }
+
+  @Watch('class')
+  watchClass() {
+    if (this.class.includes('dark')) {
+      toggleDark(true);
+    } else {
+      toggleDark(false);
+    }
   }
 
   render() {
@@ -20,5 +40,4 @@ export class CProvider {
       </Host>
     );
   }
-
 }

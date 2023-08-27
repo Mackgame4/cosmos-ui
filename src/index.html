@@ -9,6 +9,9 @@
   </head>
   <body>
     <c-provider>
+      <div style="position: fixed; top: 0; right: 0; padding: 20px;">
+        <c-button onclick="document.querySelector('c-provider').classList.toggle('dark')">Toggle Dark Mode</c-button>
+      </div>
       <div style="padding: 20px; display: flex; flex-direction: column; gap: 20px;">
       <c-icon name="user"></c-icon>
       <c-button variant="default" prepend-icon="github">Login with Github</c-button>

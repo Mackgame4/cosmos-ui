@@ -66,6 +66,8 @@ export namespace Components {
         "htmlFor": string;
     }
     interface CProvider {
+        "class": string;
+        "dark": boolean;
     }
     interface CSlider {
         "disabled": boolean;
@@ -228,6 +230,8 @@ declare namespace LocalJSX {
         "htmlFor"?: string;
     }
     interface CProvider {
+        "class"?: string;
+        "dark"?: boolean;
     }
     interface CSlider {
         "disabled"?: boolean;
