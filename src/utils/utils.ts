@@ -18,31 +18,18 @@ export function cn(
 }
 
 export function toggleDark(darkMode: boolean) {
-  if (darkMode) {
-    document.querySelectorAll("*").forEach(element => {
+  const root = document.querySelector("c-provider") as HTMLElement;
+  const processElements = (elements: NodeListOf<HTMLElement>) => {
+    elements.forEach(element => {
+      element.classList.toggle("dark", darkMode);
       if (element.shadowRoot) {
-        element.shadowRoot.querySelectorAll(".customElement").forEach(element => {
-          element.classList.add("dark")
-        })
-      } else {
-        element.querySelectorAll(".customElement").forEach(element => {
-          element.classList.add("dark")
-        })
+        const shadowElements = element.shadowRoot.querySelectorAll(".customElement") as NodeListOf<HTMLElement>;
+        processElements(shadowElements);
       }
-    })
-  } else {
-    document.querySelectorAll("*").forEach(element => {
-      if (element.shadowRoot) {
-        element.shadowRoot.querySelectorAll(".customElement").forEach(element => {
-          element.classList.remove("dark")
-        })
-      } else {
-        element.querySelectorAll(".customElement").forEach(element => {
-          element.classList.remove("dark")
-        })
-      }
-    })
-  }
+    });
+  };
+  const allElements = root.querySelectorAll("*") as NodeListOf<HTMLElement>;
+  processElements(allElements);
 }
 
 // funtion "getComponents"
