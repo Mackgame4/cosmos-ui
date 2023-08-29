@@ -132,6 +132,8 @@ body {
     box-sizing: border-box;
     border: 0 solid #e5e7eb;
     --tw-ring-inset: !important;
+    /* ring offset color should always match the background color or be transparent */
+    --tw-ring-offset-color: hsl(var(--background));
 }
 
 *[data-state],

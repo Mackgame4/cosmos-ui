@@ -3,6 +3,16 @@ import { twMerge } from "tailwind-merge"
 
 export const debugMode = true
 
+// retusn the "theme" prop from c-provider
+export function getTheme() {
+  const root = document.querySelector("c-provider") as HTMLElement;
+  const theme = root.getAttribute("theme") || "default";
+  if (theme === "default") {
+    return "shadcn" // default theme
+  }
+  return theme;
+}
+
 // cn(normal class, possible variants, choosen variants)
 export function cn(
   className: ClassValue,

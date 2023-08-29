@@ -9,6 +9,7 @@ import { debugMode, toggleDark } from '../../utils/utils';
 export class CProvider {
   @Prop({ mutable: true, reflect: true }) dark: boolean;
   @Prop({ mutable: true }) class: string;
+  @Prop({ mutable: true }) theme: string;
 
   @Element() el: HTMLElement;
 
