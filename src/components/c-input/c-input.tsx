@@ -1,5 +1,14 @@
 import { Component, Prop, Element, h } from '@stencil/core';
-import { cn } from '../../utils/utils';
+import { cn, getTheme } from '../../utils/utils';
+
+const themes = {
+  "shadcn": {
+    className: "flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+  },
+  "enterprise": {
+    className: "flex h-10 w-full rounded-none border border-input bg-background px-4 py-2 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+  }
+}
 
 @Component({
   tag: 'c-input',
@@ -45,7 +54,7 @@ export class CInput {
 
   get inputVariants() {
     return cn(
-      "flex h-9 w-full rounded-md border border-input bg-background px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+      themes[getTheme()].className,
     );
   }
 

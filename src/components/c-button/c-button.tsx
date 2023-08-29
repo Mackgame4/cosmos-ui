@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-import { getTheme, cn } from '../../utils/utils';
+import { cn, getTheme } from '../../utils/utils';
 
 const themes = {
   "shadcn": {
@@ -40,13 +40,12 @@ const themes = {
       },
     }
   },
+  // WIP - not ready yet
   "tailwind": {
-    className: "inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors uppercase tracking-wide focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
+    className: "inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors tracking-wide focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary",
     content: {
       variant: {
         default: "bg-primary text-primary-foreground shadow-md hover:shadow-lg",
-        outlined: "border border-primary text-primary-foreground bg-white shadow-md hover:bg-primary hover:text-white",
-        text: "text-primary hover:text-primary-dark",
       },
       size: {
         sm: "h-8 px-4",
@@ -61,8 +60,6 @@ const themes = {
     content: {
       variant: {
         default: "bg-primary text-primary-foreground shadow-md hover:shadow-lg",
-        outlined: "border border-primary text-primary-foreground bg-white shadow-md hover:bg-primary hover:text-white",
-        text: "text-primary hover:text-primary-dark",
       },
       size: {
         sm: "h-8 px-4",
